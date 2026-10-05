@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Asisten - AI Digital Worker</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --success: #10b981;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Hero Section */
+        .hero { text-align: center; padding: 80px 0 50px; }
+        .avatar { font-size: 4rem; margin-bottom: 15px; }
+        .badge { display: inline-block; background: rgba(16, 185, 129, 0.1); border: 1px solid var(--success); color: var(--success); padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; margin-bottom: 20px; }
+        .hero h1 { font-size: 2.8rem; margin-bottom: 15px; }
+        .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin: 0 auto; }
+        
+        /* Comparison Section */
+        .comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 50px 0; }
+        .card { background: var(--card-bg); padding: 30px; border-radius: 12px; border: 1px solid #334155; }
+        .card h3 { margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .chaos h3 { color: #ef4444; }
+        .solution h3 { color: var(--success); }
+        .card ul { list-style: none; }
+        .card li { margin-bottom: 12px; display: flex; gap: 10px; }
+        
+        /* Capabilities Section */
+        .section-title { text-align: center; margin: 60px 0 30px; font-size: 2rem; }
+        .capabilities { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 60px; }
+        .cap-card { background: var(--card-bg); padding: 25px; border-radius: 12px; text-align: center; transition: transform 0.3s ease; }
+        .cap-card:hover { transform: translateY(-5px); }
+        .cap-icon { font-size: 2.5rem; margin-bottom: 15px; }
+        
+        /* Simulation Section */
+        .simulation { max-width: 800px; margin: 0 auto 80px; background: var(--card-bg); border-radius: 12px; overflow: hidden; border: 1px solid #334155; }
+        .sim-header { background: #0f172a; padding: 15px 20px; border-bottom: 1px solid #334155; font-weight: bold; }
+        .chat-box { padding: 20px; min-height: 300px; max-height: 400px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; }
+        .msg { max-width: 80%; padding: 12px 18px; border-radius: 12px; font-size: 0.95rem; }
+        .msg-user { background: var(--accent); color: white; align-self: flex-end; border-bottom-right-radius: 2px; }
+        .msg-bot { background: #334155; color: var(--text-main); align-self: flex-start; border-bottom-left-radius: 2px; }
+        .typing { font-style: italic; color: var(--text-muted); font-size: 0.9rem; align-self: flex-start; }
+        .sim-controls { padding: 20px; background: #0f172a; border-top: 1px solid #334155; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+        .btn-sim { background: transparent; border: 1px solid var(--accent); color: var(--accent); padding: 8px 15px; border-radius: 20px; cursor: pointer; transition: 0.3s; font-size: 0.9rem; }
+        .btn-sim:hover { background: var(--accent); color: white; }
+        
+        /* Footer & CTA */
+        .cta-section { text-align: center; padding: 60px 0; border-top: 1px solid #334155; }
+        .btn-primary { display: inline-block; background: var(--success); color: white; text-decoration: none; padding: 15px 35px; border-radius: 30px; font-size: 1.1rem; font-weight: bold; transition: 0.3s; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); }
+        .btn-primary:hover { background: #059669; transform: scale(1.05); }
+        .footer-text { color: var(--text-muted); font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            .comparison { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 1. HERO SECTION -->
+        <header class="hero">
+            <div class="avatar">🤖</div>
+            <div class="badge">🟢 Status: Active & Ready 24/7</div>
+            <h1>Master Asisten</h1>
+            <p>Asisten cerdas Anda yang siap merangkum dokumen (PPT, PDF, Word, Excel), menganalisis foto dan video, serta mengatur jadwal kerja secara otomatis dengan persetujuan Anda.</p>
+        </header>
+
+        <!-- 2. PROBLEM & SOLUTION CARD -->
+        <section class="comparison">
+            <div class="card chaos">
+                <h3>❌ The Chaos</h3>
+                <ul>
+                    <li>⚠️ Menghabiskan waktu membaca file & link panjang satu per satu.</li>
+                    <li>⚠️ File di Google Drive berantakan dan sulit dicari.</li>
+                    <li>⚠️ Jadwal rapat sering tumpang tindih (bentrok).</li>
+                    <li>⚠️ Kehilangan poin penting atau kewalahan membuat notulen saat rapat panjang.</li>
+                </ul>
+            </div>
+            <div class="card solution">
+                <h3>✅ The Solution</h3>
+                <ul>
+                    <li>✨ Rangkuman super cepat & to-the-point dari dokumen apapun.</li>
+                    <li>✨ Auto-organisir file di Google Drive (dengan izin Anda).</li>
+                    <li>✨ Manajemen jadwal cerdas di Kalender (deteksi bentrok & reschedule).</li>
+                    <li>✨ Pembuatan notulensi rapat otomatis langsung dari Google Meet.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 3. CORE CAPABILITIES -->
+        <h2 class="section-title">Core Capabilities</h2>
+        <section class="capabilities">
+            <div class="cap-card">
+                <div class="cap-icon">📁</div>
+                <h3>Smart Drive Manager</h3>
+                <p>Merapikan folder Google Drive Anda secara otomatis. Selalu mengirimkan ringkasan pemindahan file untuk meminta persetujuan Anda terlebih dahulu.</p>
+            </div>
+            <div class="cap-card">
+                <div class="cap-icon">📅</div>
+                <h3>Calendar & Scheduling</h3>
+                <p>Terhubung ke Google Calendar. Membantu buat jadwal, mendeteksi jadwal bentrok, dan memberi opsi untuk menimpa atau membatalkan acara.</p>
+            </div>
+            <div class="cap-card">
+                <div class="cap-icon">🎥</div>
+                <h3>Meet Notetaker</h3>
+                <p>Terintegrasi dengan Google Meet untuk mendengarkan rapat dan membuatkan notulen terstruktur yang merangkum hasil diskusi dengan akurat.</p>
+            </div>
+        </section>
+
+        <!-- 4. INTERACTIVE SIMULATION -->
+        <h2 class="section-title">Live Simulation</h2>
+        <section class="simulation">
+            <div class="sim-header">Chat dengan Master Asisten</div>
+            <div class="chat-box" id="chat-box">
+                <div class="msg msg-bot">Halo! Saya Master Asisten. Pilih skenario di bawah ini untuk melihat cara saya bekerja.</div>
+            </div>
+            <div class="sim-controls">
+                <button class="btn-sim" onclick="runScenario(1)">📝 Rangkum Dokumen</button>
+                <button class="btn-sim" onclick="runScenario(2)">📁 Rapikan Drive</button>
+                <button class="btn-sim" onclick="runScenario(3)">📅 Buat Jadwal</button>
+            </div>
+        </section>
+
+        <!-- 5. FOOTER & CTA -->
+        <footer class="cta-section">
+            <a href="https://wa.me/6285313348020" class="btn-primary" target="_blank">Chat di WhatsApp Sekarang</a>
+            <p class="footer-text">Built with AI · AI Builder Bootcamp Showcase</p>
+        </footer>
+    </div>
+
+    <script>
+        const chatBox = document.getElementById('chat-box');
+        
+        const scenarios = {
+            1: {
+                user: "Tolong rangkum file laporan_tahunan.pdf dan video presentasinya.",
+                bot: "Siap! Laporan & video berisi 3 poin utama: 1) Kenaikan profit 20%. 2) Kendala logistik di Q2. 3) Strategi digitalisasi tahun depan. Rangkuman lengkap sudah saya simpan ke Drive Anda."
+            },
+            2: {
+                user: "Rapikan file-file yang baru saya upload di Drive hari ini.",
+                bot: "Saya menemukan 12 file berantakan. Usulan: 5 PDF dipindah ke folder 'Dokumen', dan 7 gambar ke folder 'Aset Visual'. Menunggu persetujuan Anda (Y/N) untuk mulai memindahkan."
+            },
+            3: {
+                user: "Tolong jadwalkan rapat dengan klien besok jam 10 pagi.",
+                bot: "⚠️ Mohon maaf, besok pukul 10.00 bentrok dengan jadwal 'Rapat Tim Internal'. Apakah Anda ingin saya menimpa jadwal tersebut, atau mencari jadwal kosong lainnya?"
+            }
+        };
+
+        function runScenario(id) {
+            // Disable buttons during animation
+            const buttons = document.querySelectorAll('.btn-sim');
+            buttons.forEach(btn => btn.disabled = true);
+
+            // Clear previous simulation (keep welcome msg)
+            chatBox.innerHTML = '<div class="msg msg-bot">Halo! Saya Master Asisten. Pilih skenario di bawah ini untuk melihat cara saya bekerja.</div>';
+
+            const userMsg = scenarios[id].user;
+            const botMsg = scenarios[id].bot;
+
+            // 1. Add User Message
+            setTimeout(() => {
+                chatBox.innerHTML += `<div class="msg msg-user">${userMsg}</div>`;
+                chatBox.scrollTop = chatBox.scrollHeight;
+                
+                // 2. Add Typing Indicator
+                setTimeout(() => {
+                    const typingId = 'typing-' + Date.now();
+                    chatBox.innerHTML += `<div id="${typingId}" class="typing">Master Asisten sedang mengetik...</div>`;
+                    chatBox.scrollTop = chatBox.scrollHeight;
+
+                    // 3. Add Bot Message
+                    setTimeout(() => {
+                        document.getElementById(typingId).remove();
+                        chatBox.innerHTML += `<div class="msg msg-bot">${botMsg}</div>`;
+                        chatBox.scrollTop = chatBox.scrollHeight;
+                        buttons.forEach(btn => btn.disabled = false);
+                    }, 1500);
+                }, 500);
+            }, 200);
+        }
+    </script>
+</body>
+</html>
